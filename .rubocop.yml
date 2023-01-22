@@ -1,0 +1,10 @@
+require: rubocop-rails
+
+AllCops:
+  Exclude:
+    - config/*
+    - bin/*
+  NewCops: disable
+
+Style/Documentation:
+  Enabled: false
