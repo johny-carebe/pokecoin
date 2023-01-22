@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require 'simplecov'
+require 'capybara/rails'
+require 'capybara/rspec'
+
 SimpleCov.start
 
 RSpec.configure do |config|
