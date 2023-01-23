@@ -1,0 +1,9 @@
+
+<h1>Bem-vindo a Pokecoin!</h1>
+<p>Comece procurando por um pokemon pelo seu nome.</p>
+
+<%= form_with url: '/pokemon', method: :get do |form| %>
+  <%= form.label :pokemon_name, 'Nome:' %>
+  <%= form.text_field :pokemon_name %>
+  <%= form.submit 'Pesquisar' %>
+<% end %>
