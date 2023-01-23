@@ -8,6 +8,7 @@ gem 'rails',           '7.0.4.1'
 
 gem 'capybara'
 gem 'importmap-rails'
+gem 'faraday'
 gem 'jbuilder'
 gem 'pg',              '~> 1.1'
 gem 'puma',            '~> 5.0'
