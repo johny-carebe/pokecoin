@@ -6,5 +6,10 @@ AllCops:
     - bin/*
   NewCops: disable
 
+Metrics/BlockLength:
+  Exclude:
+    - spec/features/*
+    - spec/models/*
+
 Style/Documentation:
   Enabled: false

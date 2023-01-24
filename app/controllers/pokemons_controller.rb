@@ -2,9 +2,7 @@ class PokemonsController < ApplicationController
   before_action :find_pokemon
 
   def show
-    if Pokemon.pokemon_not_found(@pokemon)
-      return redirect_to root_path
-    end
+    return redirect_to pokemon_not_found_path if Pokemon.pokemon_not_found(@pokemon)
 
     @pokemon = PokemonService.parser(@pokemon)
     render :show
