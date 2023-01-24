@@ -1,22 +1,18 @@
-# frozen_string_literal: true
-
 class PokemonsController < ApplicationController
+  before_action :find_pokemon
+
   def show
-    response = conn.get("/api/v2/pokemon/#{params[:name].downcase}")
+    if Pokemon.pokemon_not_found(@pokemon)
+      return redirect_to root_path
+    end
 
-    return redirect_to root_path, status: :not_found if response.body == 'Not Found'
-
-    parse(response)
-    render :show, status: :ok
+    @pokemon = PokemonService.parser(@pokemon)
+    render :show
   end
 
   private
 
-  def conn
-    Faraday.new('https://pokeapi.co')
-  end
-
-  def parse(response)
-    @pokemon = JSON.parse(response.body, symbolize_names: true)
+  def find_pokemon
+    @pokemon = PokemonService.get_pokemon(params[:name])
   end
 end
