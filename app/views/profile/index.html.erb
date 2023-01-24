@@ -3,8 +3,8 @@
 <p><b>Nome:</b> <%= @user[:name].capitalize %></p>
 <p><b>Carteira:</b></p>
 <ul>
-    <li><b>Bitcoins:</b> <%= '%.8f' % (@user[:bitcoins] / 100000000.0) %> BTC</li>
-    <li><b>Dólar:</b> $ <%= '%.2f' % (@user[:usd_wallet] / 100.0) %></li>
+    <li><b>Bitcoins:</b> <%= '%.8f' % (@user.bitcoins / 100000000.0) %> BTC</li>
+    <li><b>Dólar:</b> $ <%= '%.4f' % (@user.usd_wallet / 10000.0) %></li>
 </ul>
 
 </p>
