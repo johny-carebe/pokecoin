@@ -1,0 +1,7 @@
+<h1>Registrar novo pokemon:</h1>
+
+<%= form_with url: '/pokemons', method: :post, local: true do |form| %>
+  <%= form.label :name, 'Nome do pokemon:' %>
+  <%= form.text_field :name %>
+  <%= form.submit 'Registrar' %>
+<% end %>

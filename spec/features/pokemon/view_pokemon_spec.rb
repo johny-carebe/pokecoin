@@ -4,7 +4,7 @@ feature 'View a pokemon description after searching for his name' do
   scenario 'successfully' do
     visit root_path
 
-    fill_in 'Nome', with: 'Rattata'
+    fill_in 'Nome:', with: 'Rattata'
     click_on 'Pesquisar'
 
     expect(current_path).to eq(pokemons_path)
@@ -17,7 +17,7 @@ feature 'View a pokemon description after searching for his name' do
   scenario 'with no success' do
     visit root_path
 
-    fill_in 'Nome', with: 'Guilmon'
+    fill_in 'Nome:', with: 'Guilmon'
     click_on 'Pesquisar'
 
     expect(page).to have_content(
@@ -30,7 +30,7 @@ feature 'View a pokemon description after searching for his name' do
   scenario 'and return to home page' do
     visit root_path
 
-    fill_in 'Nome', with: 'Rattata'
+    fill_in 'Nome:', with: 'Rattata'
     click_on 'Pesquisar'
     click_on 'Voltar'
 
@@ -40,7 +40,7 @@ feature 'View a pokemon description after searching for his name' do
   scenario 'with no success and return to last path' do
     visit root_path
 
-    fill_in 'Nome', with: 'Guilmon'
+    fill_in 'Nome:', with: 'Guilmon'
     click_on 'Pesquisar'
     click_on 'Voltar'
 

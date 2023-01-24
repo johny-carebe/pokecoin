@@ -5,11 +5,11 @@ feature 'Create a pokemon by adding his name' do
     visit root_path
 
     click_on 'Pokemons adquiridos'
-    click_on 'Registrar novo pokemon'
     fill_in 'Nome do pokemon', with: 'rattata'
     click_on 'Registrar'
 
     expect(current_path).to eq(adquired_pokemons_path)
+    expect(page).to have_content('Registrar novo pokemon')
     expect(page).to have_content("Pokemon: Rattata # 1\nExperience: 51")
   end
 
@@ -17,7 +17,6 @@ feature 'Create a pokemon by adding his name' do
     visit root_path
 
     click_on 'Pokemons adquiridos'
-    click_on 'Registrar novo pokemon'
     fill_in 'Nome do pokemon', with: 'rattata'
     click_on 'Registrar'
 

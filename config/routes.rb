@@ -3,7 +3,9 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resources :pokemons, only: [:show]
+  resources :adquired_pokemons, only: [:index]
+
   get '/pokemons', to: 'pokemons#show'
+  post '/pokemons', to: 'pokemons#create'
   get '/pokemon_not_found', to: 'home#pokemon_not_found'
 end
