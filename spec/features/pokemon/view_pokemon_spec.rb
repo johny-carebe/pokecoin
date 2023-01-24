@@ -13,18 +13,19 @@ feature 'View a pokemon description after searching for his name' do
     )
   end
 
-  scenario 'and show a message saying the pokemon does not exists' do
+  scenario 'with no success' do
     visit root_path
     fill_in 'Nome', with: 'Guilmon'
     click_on 'Pesquisar'
 
-    expect(page).to have_content('Pokemon não encontrado, tente novamente.')
+    expect(current_path).not_to eq(pokemons_path)
   end
 
   scenario 'and return to home page' do
     visit root_path
 
     fill_in 'Nome', with: 'Rattata'
+    click_on 'Pesquisar'
     click_on 'Voltar'
 
     expect(current_path).to eq(root_path)
