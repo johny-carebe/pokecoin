@@ -1,3 +1,15 @@
+<% if @pokemons.present? %>
+  <h1>Pokemons:</h1>
+
+  <ul>
+    <% @pokemons.each do |pokemon| %>
+        <li><b>Nome:</b> <%= pokemon[:name].capitalize %> # <%= pokemon[:id] %></li>
+        <li><b>Experience:</b> <%= pokemon[:experience] %></li>
+        </p>
+    <% end %>
+  </ul>
+<% end %>
+
 <h1>Registrar novo pokemon:</h1>
 
 <%= form_with url: '/pokemons', method: :post, local: true do |form| %>
