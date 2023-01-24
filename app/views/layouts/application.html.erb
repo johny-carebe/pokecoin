@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>PokeCoin</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav>
+      <h1>Bem-vindo a Pokecoin!</h1>
+      <% unless user_signed_in? %>
+        <p><%= link_to 'Entrar', new_user_session_path %></p>
+      <% end %>
+    </nav>
+    <div class="container">
+      <%= notice %>
+      <%= alert %>
+      <%= yield %>
+    </div>
   </body>
 </html>

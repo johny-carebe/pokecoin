@@ -4,10 +4,12 @@ require 'rails_helper'
 
 feature 'Create a pokemon by adding his name' do
   scenario 'successfully' do
-    visit root_path
+    user = create(:user)
 
+    login_as user, scope: :user
+    visit root_path
     click_on 'Pokemons adquiridos'
-    fill_in 'Nome do pokemon', with: 'rattata'
+    fill_in 'Nome do pokemon:', with: 'rattata'
     click_on 'Registrar'
 
     expect(current_path).to eq(adquired_pokemons_path)
@@ -17,10 +19,13 @@ feature 'Create a pokemon by adding his name' do
   end
 
   scenario 'with no success' do
+    user = create(:user)
+
+    login_as user, scope: :user
     visit root_path
 
     click_on 'Pokemons adquiridos'
-    fill_in 'Nome do pokemon', with: 'Guilmon'
+    fill_in 'Nome do pokemon:', with: 'Guilmon'
     click_on 'Registrar'
 
     expect(page).to have_content(
