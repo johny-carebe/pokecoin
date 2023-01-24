@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :pokemons, only: [:show]
   get '/pokemons', to: 'pokemons#show'
+  get '/pokemon_not_found', to: 'home#pokemon_not_found'
 end
