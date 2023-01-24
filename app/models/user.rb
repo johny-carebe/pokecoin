@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
-  has_one :adquired_pokemon
+  has_many :pokemons, through: :adquired_pokemons
 end
