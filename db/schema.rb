@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_173049) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_24_230439) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +30,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_173049) do
     t.index ["adquired_pokemon_id"], name: "index_pokemons_on_adquired_pokemon_id"
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.string "transaction_type"
+    t.string "action"
+    t.integer "value"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.integer "usd_wallet", default: 0, null: false
@@ -47,4 +58,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_173049) do
 
   add_foreign_key "adquired_pokemons", "users"
   add_foreign_key "pokemons", "adquired_pokemons"
+  add_foreign_key "transactions", "users"
 end
