@@ -1,15 +1,25 @@
-default: &default
+development:
   adapter: postgresql
   encoding: unicode
-  host: db
+  database: pokecoin_development
+  pool: 5
+  host: localhost
   username: postgres
   password: password
-  pool: 5
-
-development:
-  <<: *default
-  database: pokecoin_development
 
 test:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: pokecoin_test
+  pool: 5
+  username: postgres
+  password: password
+
+staging:
+  url: <%= ENV['DATABASE_URL'] %>
+
+production:
+  url: <%= ENV['DATABASE_URL'] %>
+  database: pokecoin_production
+  username: pokecoin
+  password: <%= ENV["POKECOIN_DATABASE_PASSWORD"] %>
