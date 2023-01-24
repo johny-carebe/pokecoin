@@ -15,7 +15,7 @@ feature 'User access profile' do
     expect(page).to have_content('Nome: Tester')
     expect(page).to have_content('Carteira:')
     expect(page).to have_content('Bitcoins: 0.00000000 BTC')
-    expect(page).to have_content('Dólar: $ 0.00')
+    expect(page).to have_content('Dólar: $ 0.0000')
     expect(page).to have_link('Voltar')
   end
 
@@ -36,7 +36,9 @@ feature 'User access profile' do
     expect(current_path).to eq(adquired_pokemons_path)
 
     click_on 'Voltar'
+
     expect(current_path).to eq(profile_index_path)
     expect(page).to have_content(bitcoins)
+    expect(page).to have_content(user.usd_wallet)
   end
 end

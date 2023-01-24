@@ -25,7 +25,11 @@ class PokemonsController < ApplicationController
 
   def sell
     pokemon = Pokemon.find_by(id: params[:id])
-    current_user.update(bitcoins: current_user[:bitcoins] + pokemon[:experience])
+    bitcoins = current_user.bitcoins + pokemon.experience
+    bitcoin_usd_sell_value = BitcoinService.bitcoin_usd_sell_value
+    usd_wallet = (bitcoin_usd_sell_value * bitcoins / 10_000.0).to_i
+
+    current_user.update(bitcoins:, usd_wallet:)
     redirect_to adquired_pokemons_path if pokemon.delete
   end
 
