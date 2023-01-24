@@ -8,7 +8,7 @@
   <% end %>
 
   </p>
-  <p><%= link_to "Pokemons adquiridos", adquired_pokemons_path %>
+  <p><%= link_to 'Meu Perfil', profile_index_path %></p>
   <p><%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { "turbo-method": :delete } %></p>
 <% else %>
   <p><%= link_to 'Entrar', new_user_session_path %></p>
