@@ -12,7 +12,12 @@ class PokemonsController < ApplicationController
     return redirect_to pokemon_not_found_path if Pokemon.pokemon_not_found(@pokemon)
 
     pokemon_information = PokemonService.parser(@pokemon)
-    @pokemon = Pokemon.new(name: params[:name], experience: pokemon_information[:base_experience])
+    adquired_pokemon = AdquiredPokemon.last
+    @pokemon = Pokemon.new(
+      name: params[:name],
+      experience: pokemon_information[:base_experience],
+      adquired_pokemon_id: adquired_pokemon.id
+    )
     redirect_to adquired_pokemons_path if @pokemon.save
   end
 

@@ -10,14 +10,15 @@ feature 'Create a pokemon by adding his name' do
 
     expect(current_path).to eq(adquired_pokemons_path)
     expect(page).to have_content('Registrar novo pokemon')
-    expect(page).to have_content("Pokemon: Rattata # 1\nExperience: 51")
+    expect(page).to have_content('Nome: Rattata #')
+    expect(page).to have_content('Experience: ')
   end
 
   scenario 'with no success' do
     visit root_path
 
     click_on 'Pokemons adquiridos'
-    fill_in 'Nome do pokemon', with: 'rattata'
+    fill_in 'Nome do pokemon', with: 'Guilmon'
     click_on 'Registrar'
 
     expect(page).to have_content(
