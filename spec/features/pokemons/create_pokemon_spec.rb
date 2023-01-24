@@ -8,6 +8,7 @@ feature 'Create a pokemon by adding his name' do
 
     login_as user, scope: :user
     visit root_path
+    click_on 'Meu Perfil'
     click_on 'Pokemons adquiridos'
     fill_in 'Nome do pokemon:', with: 'rattata'
     click_on 'Registrar'
@@ -23,7 +24,7 @@ feature 'Create a pokemon by adding his name' do
 
     login_as user, scope: :user
     visit root_path
-
+    click_on 'Meu Perfil'
     click_on 'Pokemons adquiridos'
     fill_in 'Nome do pokemon:', with: 'Guilmon'
     click_on 'Registrar'

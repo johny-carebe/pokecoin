@@ -1,0 +1,14 @@
+<h1>Meu perfil</h1>
+
+<p><b>Nome:</b> <%= @user[:name].capitalize %></p>
+<p><b>Carteira:</b></p>
+<ul>
+    <li><b>Bitcoins:</b> <%= @user[:bitcoins] %> BTC</li>
+    <li><b>Dólar:</b> $ <%= '%.2f' % @user[:usd_wallet] %></li>
+
+</ul>
+
+</p>
+<p><%= link_to "Pokemons adquiridos", adquired_pokemons_path %></p>
+</p>
+<p><%= link_to "Voltar", :back %></p>

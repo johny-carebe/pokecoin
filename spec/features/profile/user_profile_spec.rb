@@ -10,7 +10,7 @@ feature 'User access profile' do
     visit root_path
     click_on 'Meu Perfil'
 
-    expect(current_path).to eq(user_path)
+    expect(current_path).to eq(profile_index_path)
     expect(page).to have_content('Meu perfil')
     expect(page).to have_content('Nome: Tester')
     expect(page).to have_content('Carteira:')
@@ -22,14 +22,14 @@ feature 'User access profile' do
   scenario 'successfully and has sold a pokemon' do
     user = create(:user)
     adquired_pokemon = create(:adquired_pokemon, user:)
-    create(:pokemon, name: 'rattata', adquired_pokemon:)
-    create(:pokemon, name: 'bulbasaur', adquired_pokemon:)
+    create(:pokemon, name: 'rattata', adquired_pokemon_id: adquired_pokemon.id)
+    create(:pokemon, name: 'bulbasaur', adquired_pokemon_id: adquired_pokemon.id)
 
     login_as user, scope: :user
     visit root_path
     click_on 'Meu Perfil'
 
-    expect(current_path).to eq(user_path)
+    expect(current_path).to eq(profile_index_path)
     expect(page).to have_content('Meu perfil')
     expect(page).to have_content('Nome: Tester')
     expect(page).to have_content('Carteira:')
