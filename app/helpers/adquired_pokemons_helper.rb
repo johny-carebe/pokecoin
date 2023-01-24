@@ -1,0 +1,2 @@
+module AdquiredPokemonsHelper
+end

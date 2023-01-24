@@ -1,0 +1,2 @@
+class AdquiredPokemonsController < ApplicationController
+end
