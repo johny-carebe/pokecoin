@@ -3,12 +3,11 @@
 <p><b>Nome:</b> <%= @user[:name].capitalize %></p>
 <p><b>Carteira:</b></p>
 <ul>
-    <li><b>Bitcoins:</b> <%= @user[:bitcoins] %> BTC</li>
-    <li><b>Dólar:</b> $ <%= '%.2f' % @user[:usd_wallet] %></li>
-
+    <li><b>Bitcoins:</b> <%= '%.8f' % (@user[:bitcoins] / 100000000.0) %> BTC</li>
+    <li><b>Dólar:</b> $ <%= '%.2f' % (@user[:usd_wallet] / 100.0) %></li>
 </ul>
 
 </p>
 <p><%= link_to "Pokemons adquiridos", adquired_pokemons_path %></p>
 </p>
-<p><%= link_to "Voltar", :back %></p>
+<p><%= link_to "Voltar", root_path %></p>

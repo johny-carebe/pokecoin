@@ -3,5 +3,6 @@
 FactoryBot.define do
   factory :pokemon do
     adquired_pokemon
+    experience { 50 }
   end
 end

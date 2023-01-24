@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
 class Pokemon < ApplicationRecord
-  class << self
-    def pokemon_not_found(pokemon)
-      pokemon.body == 'Not Found'
-    end
-  end
+  belongs_to :adquired_pokemon
 end

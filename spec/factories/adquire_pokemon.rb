@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :adquired_pokemon do
-    user
+    user_id { 9_999_999 }
   end
 end
