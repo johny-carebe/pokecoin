@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AdquiredPokemonsController < ApplicationController
   def index
     adquired_pokemon = AdquiredPokemon.last

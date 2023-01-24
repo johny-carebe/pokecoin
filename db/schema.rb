@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,34 +12,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_085057) do
+ActiveRecord::Schema[7.0].define(version: 20_230_124_085_057) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "adquired_pokemons", force: :cascade do |t|
-    t.integer "total_experience"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_adquired_pokemons_on_user_id"
+  create_table 'adquired_pokemons', force: :cascade do |t|
+    t.integer 'total_experience'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.bigint 'user_id'
+    t.index ['user_id'], name: 'index_adquired_pokemons_on_user_id'
   end
 
-  create_table "pokemons", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "experience"
-    t.bigint "adquired_pokemon_id"
-    t.index ["adquired_pokemon_id"], name: "index_pokemons_on_adquired_pokemon_id"
+  create_table 'pokemons', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.integer 'experience'
+    t.bigint 'adquired_pokemon_id'
+    t.index ['adquired_pokemon_id'], name: 'index_pokemons_on_adquired_pokemon_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.integer "usd_wallet"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'usd_wallet'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  add_foreign_key "adquired_pokemons", "users"
-  add_foreign_key "pokemons", "adquired_pokemons"
+  add_foreign_key 'adquired_pokemons', 'users'
+  add_foreign_key 'pokemons', 'adquired_pokemons'
 end

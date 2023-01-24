@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PokemonService
   class << self
     def get_pokemon(pokemon_name)

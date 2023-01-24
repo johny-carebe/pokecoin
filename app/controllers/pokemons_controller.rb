@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PokemonsController < ApplicationController
   before_action :find_pokemon
 

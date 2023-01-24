@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Pokemon < ApplicationRecord
   class << self
     def pokemon_not_found(pokemon)
