@@ -8,5 +8,5 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-user = User.create!(name: 'User_test')
-AdquiredPokemon.create!(user_id: user.id)
+user = User.create!(name: 'User_test', email: 'test@test.com', password: '12345678')
+AdquiredPokemon.create(user_id: user.id)

@@ -4,6 +4,9 @@ require 'rails_helper'
 
 feature 'View a pokemon description after searching for his name' do
   scenario 'successfully' do
+    user = create(:user)
+
+    login_as user, scope: :user
     visit root_path
 
     fill_in 'Nome:', with: 'Rattata'
@@ -17,6 +20,9 @@ feature 'View a pokemon description after searching for his name' do
   end
 
   scenario 'with no success' do
+    user = create(:user)
+
+    login_as user, scope: :user
     visit root_path
 
     fill_in 'Nome:', with: 'Guilmon'
@@ -30,6 +36,9 @@ feature 'View a pokemon description after searching for his name' do
   end
 
   scenario 'and return to home page' do
+    user = create(:user)
+
+    login_as user, scope: :user
     visit root_path
 
     fill_in 'Nome:', with: 'Rattata'
@@ -40,6 +49,9 @@ feature 'View a pokemon description after searching for his name' do
   end
 
   scenario 'with no success and return to last path' do
+    user = create(:user)
+
+    login_as user, scope: :user
     visit root_path
 
     fill_in 'Nome:', with: 'Guilmon'
