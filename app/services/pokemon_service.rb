@@ -10,6 +10,10 @@ class PokemonService
       JSON.parse(response.body, symbolize_names: true)
     end
 
+    def pokemon_not_found(pokemon)
+      pokemon.body == 'Not Found'
+    end
+
     private
 
     def conn

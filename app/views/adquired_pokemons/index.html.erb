@@ -5,6 +5,7 @@
     <% @pokemons.each do |pokemon| %>
         <li><b>Nome:</b> <%= pokemon[:name].capitalize %> # <%= pokemon[:id] %></li>
         <li><b>Experience:</b> <%= pokemon[:experience] %></li>
+        <%= button_to "Vender #{pokemon[:name].capitalize}", sell_pokemon_path(pokemon.id) %>
         </p>
     <% end %>
   </ul>
@@ -17,3 +18,5 @@
   <%= form.text_field :name %>
   <%= form.submit 'Registrar' %>
 <% end %>
+
+<p> <%= link_to 'Voltar', profile_index_path %> </p>
