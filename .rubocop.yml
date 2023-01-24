@@ -3,6 +3,9 @@ require: rubocop-rails
 AllCops:
   Exclude:
     - config/*
+    - config/**/*
+    - db/*
+    - db/**/*
     - bin/*
   NewCops: disable
 
