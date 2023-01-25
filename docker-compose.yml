@@ -1,21 +1,27 @@
-version: "3.9"
 services:
-  db:
-    image: postgres
-    volumes:
-      - postgres:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: password
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && bin/rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/app
-      - bundler_gems:/usr/local/bundle
+      - .:/usr/src/app
+      - bundle:/usr/local/bundle
     ports:
       - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - HISTFILE=/usr/src/app/log/.bash_history
     depends_on:
       - db
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=changeme
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
 volumes:
-  postgres:
-  bundler_gems:
+  pg_data:
+  bundle:
