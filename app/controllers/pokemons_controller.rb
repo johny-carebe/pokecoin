@@ -16,7 +16,7 @@ class PokemonsController < ApplicationController
     pokemon_information = PokemonService.parser(@pokemon)
     adquired_pokemon = AdquiredPokemon.find_by(user_id: current_user.id)
     @pokemon = Pokemon.new(
-      name: params[:name],
+      name: params[:name].capitalize,
       experience: pokemon_information[:base_experience],
       adquired_pokemon_id: adquired_pokemon.id
     )

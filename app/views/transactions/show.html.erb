@@ -1,0 +1,30 @@
+<table>
+  <tr>
+    <th>Tipo de transação</th>
+    <th>Ação</th>
+    <th>Valor</th>
+    <th>Descrição</th>
+    <th>Data</th>
+  </tr>
+  <% @transactions.each do |transaction| %>
+    <tr>
+      <td>
+        <% if transaction[:transaction_type] == 'check_in' %>
+          Entrada
+        <% else %>
+          Saída
+        <% end %>
+      </td>
+      <td>
+        <% if transaction[:action] == 'sell' %>
+          Venda
+        <% end %>
+      </td>
+      <td><%= transaction[:value] %></td>
+      <td><%= transaction[:description] %></td>
+      <td><%= transaction[:created_at] %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to 'Voltar', :back %></p>
