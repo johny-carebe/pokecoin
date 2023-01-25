@@ -3,9 +3,9 @@
 
   <ul>
     <% @pokemons.each do |pokemon| %>
-        <li><b>Nome:</b> <%= pokemon[:name].capitalize %> # <%= pokemon[:id] %></li>
+        <li><b>Nome:</b> <%= pokemon[:name] %> # <%= pokemon[:id] %></li>
         <li><b>Experience:</b> <%= pokemon[:experience] %></li>
-        <%= button_to "Vender #{pokemon[:name].capitalize}", sell_pokemon_path(pokemon.id) %>
+        <%= button_to "Vender #{pokemon[:name].capitalize}", transaction_sell_pokemon_path(pokemon.id) %>
         </p>
     <% end %>
   </ul>

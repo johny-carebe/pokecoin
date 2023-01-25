@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: pokecoin_development
   pool: 5
-  host: localhost
+  host: db
   username: postgres
   password: password
 

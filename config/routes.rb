@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   resources :adquired_pokemons, only: [:index]
   resources :profile,           only: [:index]
 
+  get  '/pokemon_not_found', to: 'home#pokemon_not_found'
   get  '/pokemons',          to: 'pokemons#show'
   post '/pokemons',          to: 'pokemons#create'
-  post '/pokemons/:id/sell', to: 'pokemons#sell', as: 'sell_pokemon'
-  get  '/pokemon_not_found', to: 'home#pokemon_not_found'
+  get  '/transactions',      to: 'transactions#show'
+  post '/pokemons/:id/sell', to: 'transactions#transaction_sell_pokemon', as: 'transaction_sell_pokemon'
 end
