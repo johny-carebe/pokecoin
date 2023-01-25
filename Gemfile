@@ -16,7 +16,10 @@ gem 'puma',            '~> 5.0'
 gem 'rubocop-rails', require: false
 gem 'sprockets-rails'
 gem 'stimulus-rails'
+gem "tailwindcss-rails"
 gem 'turbo-rails'
+gem "vite_rails"
+gem "vite_ruby"
 
 gem 'bootsnap', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
