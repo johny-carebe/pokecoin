@@ -9,4 +9,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 user = User.create!(name: 'User_test', email: 'test@test.com', password: '12345678')
-AdquiredPokemon.create(user_id: user.id)
+Pokemon.create(name: 'Rattata', user_id: user.id, base_experience: '51')
+Pokemon.create(name: 'Rattata', user_id: user.id, base_experience: '51')
+Pokemon.create(name: 'Rattata', user_id: user.id, base_experience: '51')

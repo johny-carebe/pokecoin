@@ -2,7 +2,8 @@
 
 FactoryBot.define do
   factory :pokemon do
-    adquired_pokemon
     experience { 50 }
+    name { 'Rattata' }
+    user
   end
 end

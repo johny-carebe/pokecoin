@@ -8,8 +8,7 @@ feature 'User see list of last transactions' do
     20.times { create(:transaction, user:) }
 
     login_as user, scope: :user
-    visit root_path
-    click_on 'Meu Perfil'
+    visit profile_path
     click_on 'Minhas transações'
 
     expect(current_path).to eq(transactions_path)

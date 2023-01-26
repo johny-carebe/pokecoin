@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
 
-if [ -f tmp/pids/server.pid ]; then
-  rm tmp/pids/server.pid
-fi
+rm -f /usr/src/app/tmp/pids/server.pid
 
-bundle install
+echo "bundle install..."
+bundle check || bundle install --jobs 4
+
 exec "$@"

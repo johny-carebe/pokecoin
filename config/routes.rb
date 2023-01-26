@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
 
-  resources :adquired_pokemons, only: [:index]
-  resources :profile,           only: [:index]
+  resources :pokemons,     only: %i[index create] do
+    get 'not_found',       on: :collection
+    post 'sell',           on: :member
+  end
 
-  get  '/pokemon_not_found', to: 'home#pokemon_not_found'
-  get  '/pokemons',          to: 'pokemons#show'
-  post '/pokemons',          to: 'pokemons#create'
-  get  '/transactions',      to: 'transactions#show'
-  post '/pokemons/:id/sell', to: 'transactions#transaction_sell_pokemon', as: 'transaction_sell_pokemon'
+  resources :transactions, only: [:index]
+
+  get '/profile', to: 'profile#show'
 end
