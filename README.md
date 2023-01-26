@@ -1,24 +1,37 @@
-# README
+# Pokecoin
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Heroku link](https://lit-lake-90935.herokuapp.com/)
 
-Things you may want to cover:
+- Rails 7
+- Ruby 3
+- Dockerfile and Docker Compose configuration
+- PostgreSQL database
 
-* Ruby version
+## Initial setup
 
-* System dependencies
+```
+`docker compose up --build`
+`docker-compose exec web rails db:create db:migrate`
 
-* Configuration
+Already up in locally in `http://0.0.0.0:3000/`
+```
 
-* Database creation
+## Running the Rails console and tests
 
-* Database initialization
+When the app is already running with `docker-compose` up, attach to the container:
 
-* How to run the test suite
+```
+docker compose exec web rails c
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+When no container running yet, start up a new one:
 
-* Deployment instructions
+```
+docker compose run --rm web rails c
+```
 
-* ...
+## Running tests
+
+```
+docker compose exec web rspec ./spec
+```

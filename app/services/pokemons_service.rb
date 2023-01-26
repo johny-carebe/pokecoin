@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PokemonService
+class PokemonsService
   class << self
     def get_pokemon(pokemon_name)
       conn.get("/api/v2/pokemon/#{pokemon_name.downcase}/")
@@ -8,10 +8,6 @@ class PokemonService
 
     def parser(response)
       JSON.parse(response.body, symbolize_names: true)
-    end
-
-    def pokemon_not_found(pokemon)
-      pokemon.body == 'Not Found'
     end
 
     private
