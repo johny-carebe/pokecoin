@@ -2,6 +2,6 @@
 
 class TransactionsController < ApplicationController
   def index
-    @transactions = Transaction.where(user_id: current_user.id).last(20)
+    @transactions = TransactionsService.load_transactions(current_user.id)
   end
 end
